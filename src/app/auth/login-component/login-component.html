@@ -1,0 +1,44 @@
+<div class="container d-flex justify-content-center align-items-center" style="height: 90vh">
+  <div class="card glass-panel p-4 shadow-lg" style="width: 400px">
+    <div class="text-center mb-4">
+      <i class="bi bi-rocket-takeoff fs-1 text-neon"></i>
+      <h3 class="mt-2 fw-bold text-white">Galactic Access</h3>
+    </div>
+    <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+      <div class="mb-3">
+        <label class="form-label text-secondary">Identificación (Email) </label>
+        <input
+          type="email"
+          name="email"
+          ngModel
+          required
+          class="form-control bg-dark text-white border-secondary"
+          placeholder="pilot@galaxy.com"
+        />
+        @if (loginForm.controls['email'].invalid && loginForm.controls['email'].touched) {
+          <div class="text-danger small mt-1">El email es obligatorio.</div>
+        }
+      </div>
+      <div class="mb-3">
+        <label class="form-label text-secondary">Código de Acceso</label>
+        <input
+          type="password"
+          name="password"
+          required
+          ngModel
+          class="form-control bg-dark text-white border-secondary"
+          placeholder="••••••"
+        />
+        @if (loginForm.controls['password'].invalid && loginForm.controls['password'].touched) {
+          <div class="text-danger small mt-1">El codigo de acceso es obligatorio.</div>
+        }
+      </div>
+      <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary fw-bold">INICIAR PROPULSORES</button>
+        <a routerLink="/auth/register" class="btn btn-outline-secondary btn-sm">
+          Solicitar Licencia de Vuelo
+        </a>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-transparent border-bottom border-secondary mb-4">
+  <div class="container">
+    <a class="navbar-brand text-neon fw-bold" href="#">
+      <i class="bi bi-stars"></i> GALACTIC CARGO
+    </a>
+    <div class="collapse navbar-collapse">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/home" routerLinkActive="active">Noticias</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/dashboard/list" routerLinkActive="active">Operaciones</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+        <ng-container>
+          <a routerLink="/auth/login" class="btn btn-sm btn-outline- light me-2">Login</a>
+        </ng-container>
+        <ng-container>
+          <div class="dropdown">
+            <button
+              class="btn btn-sm btn-dark dropdown-toggle border-secondary"
+              type="button"
+              data-bs-toggle="dropdown"
+            >
+              <i class="bi bi-person-circle"></i> Usuario
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li><button class="dropdown-item text- danger">Cerrar Sesión</button></li>
+            </ul>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</nav>

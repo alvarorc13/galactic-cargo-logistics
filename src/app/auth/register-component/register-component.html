@@ -1,0 +1,70 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card glass-panel text-white">
+        <div class="card-header border-0 bg-transparent text-center pt- 4">
+          <h2 class="text-neon">Nuevo Recluta</h2>
+          <p class="text-muted">Únete a la flota de la Federación</p>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="registerForm" (ngSubmit)="register()" autocomplete="off">
+            <div class="mb-3">
+              <label class="form-label">Nombre del Piloto</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-person"></i
+                ></span>
+                <input
+                  type="text"
+                  formControlName="name"
+                  class="form-control bg-dark text-white border-secondary"
+                  placeholder="Ej: Han Solo"
+                />
+              </div>
+              @if (isNotValidField('name')) {
+                <span class="text-danger small">{{ getFieldErrors('name') }}</span>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Correo Galáctico</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="email"
+                  formControlName="email"
+                  class="form-control bg-dark text-white border-secondary"
+                  placeholder="user@galaxy.com"
+                />
+              </div>
+              @if (isNotValidField('email')) {
+                <span class="text-danger small">{{ getFieldErrors('email') }}</span>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Clave de Seguridad</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-key"></i
+                ></span>
+                <input
+                  type="password"
+                  formControlName="password"
+                  class="form-control bg- dark text-white border-secondary"
+                  placeholder="******"
+                />
+              </div>
+              @if (isNotValidField('password')) {
+                <span class="text-danger small">{{ getFieldErrors('password') }}</span>
+              }
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 mt-3">
+              <i class="bi bi-check-circle me-2"></i> REGISTRAR PILOTO
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
