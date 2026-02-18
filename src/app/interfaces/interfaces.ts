@@ -16,6 +16,16 @@ export interface LoginResponse {
 }
 
 export interface Cargo {
+  id: string;
+  code: string;
+  description: string;
+  origin: string;
+  destination: string;
+  value: number;
+  status: 'Disponible' | 'En ruta' | 'Entregado';
+}
+
+export interface NewCargo {
   code: string;
   description: string;
   origin: string;

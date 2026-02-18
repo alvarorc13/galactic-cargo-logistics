@@ -1,1 +1,118 @@
-<p>cargo-create-component works!</p>
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card glass-panel text-white">
+        <div class="card-header border-0 bg-transparent text-center pt- 4">
+          <h2 class="text-neon">Nueva Carga</h2>
+          <p class="text-muted">Añade una carga</p>
+        </div>
+        <div class="card-body p-4">
+          <form [formGroup]="cargoForm" (ngSubmit)="save()" autocomplete="off">
+            <div class="mb-3">
+              <label class="form-label">Codigo</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-person"></i
+                ></span>
+                <input
+                  type="text"
+                  formControlName="code"
+                  class="form-control bg-dark text-white border-secondary"
+                  placeholder="Ej: CRGO-001"
+                />
+              </div>
+              @if (isNotValidField('code')) {
+                <span class="text-danger small">{{ getFieldErrors('code') }}</span>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Descripcion</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-envelope"></i
+                ></span>
+                <input
+                  type="text"
+                  formControlName="description"
+                  class="form-control bg-dark text-white border-secondary"
+                  placeholder="user@galaxy.com"
+                />
+              </div>
+              @if (isNotValidField('description')) {
+                <span class="text-danger small">{{ getFieldErrors('description') }}</span>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Origen</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-key"></i
+                ></span>
+                <input
+                  type="text"
+                  formControlName="origin"
+                  class="form-control bg-dark text-white border-secondary"
+                />
+              </div>
+              @if (isNotValidField('origin')) {
+                <span class="text-danger small">{{ getFieldErrors('origin') }}</span>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Destino</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-key"></i
+                ></span>
+                <input
+                  type="text"
+                  formControlName="destination"
+                  class="form-control bg-dark text-white border-secondary"
+                />
+              </div>
+              @if (isNotValidField('destination')) {
+                <span class="text-danger small">{{ getFieldErrors('destination') }}</span>
+              }
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Valor</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-key"></i
+                ></span>
+                <input
+                  type="number"
+                  formControlName="value"
+                  class="form-control bg-dark text-white border-secondary"
+                />
+              </div>
+              @if (isNotValidField('value')) {
+                <span class="text-danger small">{{ getFieldErrors('value') }}</span>
+              }
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Estado</label>
+              <div class="input-group">
+                <span class="input-group-text bg-dark border- secondary text-secondary"
+                  ><i class="bi bi-key"></i
+                ></span>
+                <select formControlName="status" id="status">
+                  <option value="Disponible">Disponible</option>
+                  <option value="En ruta">En ruta</option>
+                  <option value="Entregado">Entregado</option>
+                </select>
+              </div>
+              @if (isNotValidField('status')) {
+                <span class="text-danger small">{{ getFieldErrors('status') }}</span>
+              }
+            </div>
+            <button type="submit" class="btn btn-success w-100 py-2 mt-3">
+              <i class="bi bi-check-circle me-2"></i> REGISTRAR CARGA
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
