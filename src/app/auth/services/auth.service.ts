@@ -3,6 +3,7 @@ import { JWTPayload, LoginResponse } from '../../interfaces/interfaces';
 import { HttpClient } from '@angular/common/http';
 import Swal from 'sweetalert2';
 import { tap } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -12,6 +13,7 @@ export class AuthService {
   user = this._user.asReadonly();
   private http = inject(HttpClient);
   private APIURL = 'http://localhost:3000';
+  private router = inject(Router);
 
   constructor() {
     const token = localStorage.getItem('token');
@@ -57,5 +59,6 @@ export class AuthService {
   logout() {
     this._user.set(null);
     localStorage.removeItem('token');
+    this.router.navigate(['/auth/login']);
   }
 }
