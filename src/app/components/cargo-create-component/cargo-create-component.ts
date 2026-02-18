@@ -48,8 +48,6 @@ export class CargoCreateComponent {
       this.cargoForm.markAllAsTouched();
       return;
     }
-    console.log('Datos a enviar:', this.cargoForm.value); // 👈 Añade esto
-
     this.cargoService.addCargo(this.cargoForm.value);
   }
 }
